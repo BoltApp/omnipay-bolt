@@ -3,7 +3,7 @@ Omnipay driver for Bolt Checkout
 
 ## Development
 #### Setup phpbrew
-Follow instructions at the phpbrew[GitHub repo](https://github.com/phpbrew/phpbrew)to setup it up.
+Follow instructions at the phpbrew [GitHub repo](https://github.com/phpbrew/phpbrew) to setup it up.
 
 Install any version of php that is greater than 5.4
 ```
