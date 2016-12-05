@@ -9,7 +9,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "boltapp/omnipay-bolt": "~2.0"
+        "boltapp/omnipay-bolt": "^0.1.0"
     }
 }
 ```
