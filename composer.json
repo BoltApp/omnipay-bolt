@@ -1,7 +1,7 @@
 {
-    "name": "omnipay/bolt",
+    "name": "boltapp/omnipay-bolt",
     "type": "library",
-    "description": "Bolt driver for the Omnipay payment processing library",
+    "description": "Omnipay driver for Bolt payments",
     "keywords": [
         "gateway",
         "merchant",
@@ -10,7 +10,7 @@
         "payment",
         "bolt"
     ],
-    "homepage": "https://github.com/BoltApp/bolt_integrations",
+    "homepage": "https://github.com/BoltApp/omnipay-bolt",
     "license": "MIT",
     "authors": [
         {
