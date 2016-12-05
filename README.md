@@ -1,6 +1,24 @@
 # Bolt Omnipay integration
 Omnipay driver for Bolt Checkout
 
+## Installation
+
+Omnipay is installed via [Composer](http://getcomposer.org/). To install, simply add it
+to your `composer.json` file:
+
+```json
+{
+    "require": {
+        "boltapp/omnipay-bolt": "~2.0"
+    }
+}
+```
+
+And run composer to update your dependencies:
+```
+$ php composer.phar update
+```
+
 ## Development
 #### Setup phpbrew
 Follow instructions at the phpbrew [GitHub repo](https://github.com/phpbrew/phpbrew) to setup it up.
