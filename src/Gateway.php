@@ -59,6 +59,10 @@ class Gateway extends AbstractGateway {
         return $this->createRequest('\Omnipay\Bolt\Message\CaptureRequest', $parameters);
     }
 
+    public function acceptNotification() {
+        return $this->createRequest('\Omnipay\Bolt\Message\ServerNotification', null);
+    }
+
     public function fetchTransaction(array $parameters = array()) {
         return $this->createRequest('\Omnipay\Bolt\Message\FetchTransactionRequest', $parameters);
     }
