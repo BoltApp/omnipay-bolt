@@ -1,0 +1,8 @@
+.DS_Store
+.idea
+.idea
+documents
+vendor
+omnipay-dev-server/.idea
+omnipay-dev-server/vendor
+composer.lock

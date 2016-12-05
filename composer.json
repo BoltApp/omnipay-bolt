@@ -1,0 +1,39 @@
+{
+    "name": "omnipay/bolt",
+    "type": "library",
+    "description": "Bolt driver for the Omnipay payment processing library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment",
+        "bolt"
+    ],
+    "homepage": "https://github.com/BoltApp/bolt_integrations",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Akshaya Srivatsa",
+            "email": "aks@bolt.me"
+        },
+        {
+            "name": "Bolt Engineering",
+            "email": "dev@bolt.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\Bolt\\" : "src/" }
+    },
+    "require": {
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
