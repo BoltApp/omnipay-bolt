@@ -31,4 +31,20 @@ class Address {
     public function setPostalCode($code) {
         return $this->parameters->set('postalCode', $code);
     }
+
+    public function getState() {
+        return $this->parameters->get('state');
+    }
+
+    public function setState($state) {
+        return $this->parameters->set('state', $state);
+    }
+
+    public function getCountryCode() {
+        return $this->parameters->get('countryCode');
+    }
+
+    public function setCountryCode($code) {
+        return $this->parameters->set('countryCode', $code);
+    }
 }

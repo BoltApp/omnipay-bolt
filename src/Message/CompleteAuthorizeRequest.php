@@ -67,7 +67,9 @@ class CompleteAuthorizeRequest extends AbstractRequest {
                 'currency' => $this->getCart()->getCurrency(),
                 'total_amount' => $this->getCart()->getTotalAmount(),
                 'billing_address' => array(
-                    'postal_code' => $this->getBillingAddress()->getPostalCode()
+                    'region' => $this->getBillingAddress()->getState(),
+                    'postal_code' => $this->getBillingAddress()->getPostalCode(),
+                    'country_code' => $this->getBillingAddress()->getCountryCode()
                 )
             )
         );
