@@ -21,6 +21,7 @@ class FetchTransactionRequest extends AbstractRequest {
 
     public function getData() {
         $this->validate('transactionReference');
+        // There is no data to send since this is a GET request
         return array();
     }
 }

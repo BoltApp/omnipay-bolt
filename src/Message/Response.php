@@ -9,7 +9,7 @@ class Response extends AbstractResponse {
         return !array_key_exists('errors', $this->data) || sizeof($this->data['errors']) == 0;
     }
 
-    // No action to Bolt Gateway requires a redirect
+    // No action to Bolt requires a redirect
     // Hence its set to false
     public function isRedirect() {
         return false;
