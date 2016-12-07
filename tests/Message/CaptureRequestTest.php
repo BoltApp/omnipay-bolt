@@ -16,6 +16,8 @@ class CaptureRequestTest extends TestCase
         ));
         $data = $this->request->getData();
 
+        $this->assertSame('POST', $this->request->getHttpMethod());
+        $this->assertSame('/merchant/transactions/capture', $this->request->getEndpoint());
         $this->assertSame(1, sizeof($data));
         $this->assertSame('ABCD1234', $data['transaction_id']);
     }

@@ -18,6 +18,8 @@ class RefundRequestTest extends TestCase
         ));
         $data = $this->request->getData();
 
+        $this->assertSame('POST', $this->request->getHttpMethod());
+        $this->assertSame('/merchant/transactions/credit', $this->request->getEndpoint());
         $this->assertSame(3, sizeof($data));
         $this->assertSame('ABCD1234', $data['transaction_id']);
         $this->assertSame(1245, $data['Amount']);
