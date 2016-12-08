@@ -76,4 +76,33 @@ class GatewayTest extends GatewayTestCase
         $this->assertSame('California', $request->getData()['cart']['billing_address']['region']);
         $this->assertSame('US', $request->getData()['cart']['billing_address']['country_code']);
     }
+
+    public function testCompletePurchase() {
+        $cart = new Cart(array(
+            'displayId' => 'ABCDE',
+            'orderReference' => 'GGHHR',
+            'currency' => 'USD',
+            'totalAmount' => '12345'
+        ));
+        $billingAddress = new Address(array(
+            'countryCode' => 'US',
+            'state' => 'California',
+            'postalCode' => '543210'
+        ));
+        $request = $this->gateway->completePurchase(array(
+            'transactionReference' => 'ABCD-1234-EFGH',
+            'cart' => $cart,
+            'billingAddress' => $billingAddress
+        ));
+        $this->assertInstanceOf('Omnipay\Bolt\Message\CompletePurchaseRequest', $request);
+        $this->assertSame('ABCD-1234-EFGH', $request->getData()['reference']);
+        $this->assertSame(true, $request->getData()['auto_capture']);
+        $this->assertSame('ABCDE', $request->getData()['cart']['display_id']);
+        $this->assertSame('GGHHR', $request->getData()['cart']['order_reference']);
+        $this->assertSame('USD', $request->getData()['cart']['currency']);
+        $this->assertSame(12345, $request->getData()['cart']['total_amount']);
+        $this->assertSame('543210', $request->getData()['cart']['billing_address']['postal_code']);
+        $this->assertSame('California', $request->getData()['cart']['billing_address']['region']);
+        $this->assertSame('US', $request->getData()['cart']['billing_address']['country_code']);
+    }
 }
