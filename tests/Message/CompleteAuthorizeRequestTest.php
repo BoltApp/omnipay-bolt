@@ -32,6 +32,7 @@ class CompleteAuthorizeReqeustTest extends TestCase
         $this->assertSame('POST', $this->request->getHttpMethod());
         $this->assertSame('/merchant/transactions/complete_authorize', $this->request->getEndpoint());
         $this->assertSame('ABCD-1234-EFGH', $data['reference']);
+        $this->assertSame(false, $data['auto_capture']);
         $this->assertSame('ABCDE', $data['cart']['display_id']);
         $this->assertSame('GGHHR', $data['cart']['order_reference']);
         $this->assertSame('USD', $data['cart']['currency']);

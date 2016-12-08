@@ -67,6 +67,7 @@ class GatewayTest extends GatewayTestCase
         ));
         $this->assertInstanceOf('Omnipay\Bolt\Message\CompleteAuthorizeRequest', $request);
         $this->assertSame('ABCD-1234-EFGH', $request->getData()['reference']);
+        $this->assertSame(false, $request->getData()['auto_capture']);
         $this->assertSame('ABCDE', $request->getData()['cart']['display_id']);
         $this->assertSame('GGHHR', $request->getData()['cart']['order_reference']);
         $this->assertSame('USD', $request->getData()['cart']['currency']);

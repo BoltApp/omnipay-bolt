@@ -70,4 +70,8 @@ class Gateway extends AbstractGateway {
     public function completeAuthorize(array $parameters = array()) {
         return $this->createRequest('\Omnipay\Bolt\Message\CompleteAuthorizeRequest', $parameters);
     }
+
+    public function completePurchase(array $parameters = array()) {
+        return $this->createRequest('\Omnipay\Bolt\Message\CompletePurchaseRequest', $parameters);
+    }
 }

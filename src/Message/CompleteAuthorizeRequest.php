@@ -41,6 +41,16 @@ class CompleteAuthorizeRequest extends AbstractRequest {
     }
 
     /**
+     * Get AutoCapture. True indicates the transaction has been submitted
+     * for auto capture. False indicates other wise
+     *
+     * @return bool.
+     */
+    public function getAutoCapture() {
+        return false;
+    }
+
+    /**
      * Set Cart
      *
      * @param Cart $cart
@@ -64,7 +74,8 @@ class CompleteAuthorizeRequest extends AbstractRequest {
         $this->validate('transactionReference', 'cart');
 
         $data = array(
-            'reference' => $this->getTransactionReference()
+            'reference' => $this->getTransactionReference(),
+            'auto_capture' => $this->getAutoCapture(),
         );
 
         if ($this->getCart() != null) {
