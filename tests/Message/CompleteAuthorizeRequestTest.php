@@ -35,7 +35,7 @@ class CompleteAuthorizeReqeustTest extends TestCase
         $this->assertSame('ABCDE', $data['cart']['display_id']);
         $this->assertSame('GGHHR', $data['cart']['order_reference']);
         $this->assertSame('USD', $data['cart']['currency']);
-        $this->assertSame('12345', $data['cart']['total_amount']);
+        $this->assertSame(12345, $data['cart']['total_amount']);
         $this->assertSame('543210', $data['cart']['billing_address']['postal_code']);
         $this->assertSame('California', $data['cart']['billing_address']['region']);
         $this->assertSame('US', $data['cart']['billing_address']['country_code']);
@@ -77,24 +77,6 @@ class CompleteAuthorizeReqeustTest extends TestCase
         $this->initializeRequest(array(
             'transactionReference' => 'ABCD-1234-EFGH',
             'billingAddress' => $billingAddress
-        ));
-        $this->request->getData();
-    }
-
-    /**
-     * @expectedException \Omnipay\Common\Exception\InvalidRequestException
-     * @expectedExceptionMessage The billingAddress parameter is required
-     */
-    public function testBillingAddressIsRequired() {
-        $cart = new Cart(array(
-            'displayId' => 'ABCDE',
-            'orderReference' => 'GGHHR',
-            'currency' => 'USD',
-            'totalAmount' => '12345'
-        ));
-        $this->initializeRequest(array(
-            'transactionReference' => 'ABCD-1234-EFGH',
-            'cart' => $cart
         ));
         $this->request->getData();
     }

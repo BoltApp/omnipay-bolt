@@ -18,6 +18,10 @@ class CompleteAuthorizeRequest extends AbstractRequest {
         return '/merchant/transactions/complete_authorize';
     }
 
+    public function getResponseClass() {
+        return '\Omnipay\Bolt\Message\CompleteAuthorizeResponse';
+    }
+
     /**
      * Get Cart.
      *
@@ -57,22 +61,38 @@ class CompleteAuthorizeRequest extends AbstractRequest {
     }
 
     public function getData() {
-        $this->validate('transactionReference', 'cart', 'billingAddress');
+        $this->validate('transactionReference', 'cart');
 
         $data = array(
-            'reference' => $this->getTransactionReference(),
-            'cart' => array(
-                'order_reference' => $this->getCart()->getOrderReference(),
-                'display_id' => $this->getCart()->getDisplayId(),
-                'currency' => $this->getCart()->getCurrency(),
-                'total_amount' => $this->getCart()->getTotalAmount(),
-                'billing_address' => array(
-                    'region' => $this->getBillingAddress()->getState(),
-                    'postal_code' => $this->getBillingAddress()->getPostalCode(),
-                    'country_code' => $this->getBillingAddress()->getCountryCode()
-                )
-            )
+            'reference' => $this->getTransactionReference()
         );
+
+        if ($this->getCart() != null) {
+            $data['cart'] = array();
+
+            if ($this->getCart()->getOrderReference() != null) {
+                $data['cart']['order_reference'] = $this->getCart()->getOrderReference();
+            }
+
+            if ($this->getCart()->getDisplayId() != null) {
+                $data['cart']['display_id'] = $this->getCart()->getDisplayId();
+            }
+
+            $data['cart']['currency'] = $this->getCart()->getCurrency();
+            $data['cart']['total_amount'] = intval($this->getCart()->getTotalAmount());
+
+            if ($this->getCart() != null) {
+                $data['cart']['order_reference'] = $this->getCart()->getOrderReference();
+            }
+
+            if ($this->getBillingAddress() != null) {
+                $data['cart']['billing_address'] = array(
+                    'postal_code' => $this->getBillingAddress()->getPostalCode(),
+                    'region' => $this->getBillingAddress()->getState(),
+                    'country_code' => $this->getBillingAddress()->getCountryCode()
+                );
+            }
+        }
 
         return $data;
     }

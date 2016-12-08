@@ -70,7 +70,7 @@ class GatewayTest extends GatewayTestCase
         $this->assertSame('ABCDE', $request->getData()['cart']['display_id']);
         $this->assertSame('GGHHR', $request->getData()['cart']['order_reference']);
         $this->assertSame('USD', $request->getData()['cart']['currency']);
-        $this->assertSame('12345', $request->getData()['cart']['total_amount']);
+        $this->assertSame(12345, $request->getData()['cart']['total_amount']);
         $this->assertSame('543210', $request->getData()['cart']['billing_address']['postal_code']);
         $this->assertSame('California', $request->getData()['cart']['billing_address']['region']);
         $this->assertSame('US', $request->getData()['cart']['billing_address']['country_code']);
