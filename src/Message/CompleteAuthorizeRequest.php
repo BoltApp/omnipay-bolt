@@ -90,10 +90,14 @@ class CompleteAuthorizeRequest extends AbstractRequest {
             }
 
             $total = floatval($this->getCart()->getTotalAmount()) * 100;
+            $tax = $this->getCart()->getTaxAmount();
             $data['cart']['currency'] = $this->getCart()->getCurrency();
             $data['cart']['total_amount'] = intval($total);
+            if ($tax != null) {
+                $data['cart']['tax_amount'] = intval($floatval(tax) * 100);    
+            }
 
-            if ($this->getCart() != null) {
+            if ($this->getCart()->getOrderReference() != null) {
                 $data['cart']['order_reference'] = $this->getCart()->getOrderReference();
             }
 
