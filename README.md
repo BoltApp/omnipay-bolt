@@ -42,7 +42,5 @@ php composer.phar update
 
 #### Running tests 
 ```
-cd omnipay-bolt
-chmod +x runtests.sh (May not be necessary)
-./runtests.sh
+./runtests.sh # you'll need phpunit at vendor/bin/phpunit
 ```
