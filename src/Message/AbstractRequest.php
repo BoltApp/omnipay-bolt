@@ -9,14 +9,14 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest {
      *
      * @var string URL
      */
-    protected $liveEndpoint = 'https://api.boltapp.com/v1';
+    protected $liveEndpoint = 'https://api.bolt.com/v1';
 
     /**
      * Test Endpoint URL.
      *
      * @var string URL
      */
-    protected $testEndpoint = 'https://api-sandbox.boltapp.com/v1';
+    protected $testEndpoint = 'https://api-sandbox.bolt.com/v1';
 
     public function getRootEndpoint() {
         if ($this->getTestMode()) {
