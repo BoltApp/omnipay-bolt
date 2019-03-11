@@ -74,7 +74,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest {
             'Content-Type' => 'application/json',
             'X-Nonce' => strval(rand(100000000, 99999999)),
             'Content-Length' => strlen($encoded_data),
-            'X-Merchant-Key' => $key,
+            'X-Api-Key' => $key,
         );
 
         $responseClass = $this->getResponseClass();
